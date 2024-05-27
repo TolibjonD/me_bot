@@ -54,10 +54,10 @@ async def info_bot(message: Message):
     user_id = message.from_user.id
     # ? Make general caption
     message_caption = "Ajoyib, keling siz haqingizda biroz ma'lumot beraman:\n\n"
-    message_caption += f"{html.blockquote(f"Ismingiz: {first_name}")}\n"
-    message_caption += f"{html.blockquote(f"Sizning ID: {html.code(user_id)}")}\n"
+    message_caption += f"{html.blockquote(f'Ismingiz: {first_name}')}\n"
+    message_caption += f"{html.blockquote(f'Sizning ID: {html.code(user_id)}')}\n"
     if message.from_user.username:
-        message_caption += f"{html.blockquote(f"Sizning username: {message.from_user.mention_html()}")}"
+        message_caption += f"{html.blockquote(f'Sizning username: {message.from_user.mention_html()}')}"
     # ? Send user photo and informations
     try:
         # ? GET user profile photo
@@ -81,7 +81,7 @@ async def echo_bot(message: Message):
                 if i == sura_id:
                     this_sura = suralar[sura_id-1]
                     for key, item in this_sura.items():
-                        sura_name += f"{html.underline(html.bold("Name of Surah"))}: {key}\n{html.underline(html.bold("Meaning"))}: {item}"
+                        sura_name += f"{html.underline(html.bold('Name of Surah'))}: {key}\n{html.underline(html.bold('Meaning'))}: {item}"
             await message.answer(sura_name)
             verse_id = 0
             for verse in sura:
@@ -102,11 +102,11 @@ async def echo_bot(message: Message):
             for index in range(round(len(suralar)/2)):
                 sura = suralar[index]
                 for key, item in sura.items():
-                    text2 += f" {html.blockquote(f"{key} - {item}")}"
+                    text2 += f" {html.blockquote(f'{key} - {item}')}"
             for index in range(round(len(suralar)/2)+1,len(suralar)):
                 sura = suralar[index]
                 for key, item in sura.items():
-                    text3 += f" {html.blockquote(f"{key} - {item}")}"
+                    text3 += f" {html.blockquote(f'{key} - {item}')}"
             await message.answer(text="Sura raqamini yuboring 1 dan 104 gacha.", reply_markup=ReplyKeyboardRemove())
             await bot.send_chat_action(chat_id=message.from_user.id, action=enums.ChatAction.TYPING)
             sleep(2)
